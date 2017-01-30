@@ -1,0 +1,15 @@
+{
+  "name": "package",
+  "version": "1.0.0",
+  "description": "FlightBot",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ed Freitas",
+  "license": "ISC",
+  "dependencies": {
+    "request": "^2.75.0",
+    "twitter": "^1.4.0"
+  }
+}

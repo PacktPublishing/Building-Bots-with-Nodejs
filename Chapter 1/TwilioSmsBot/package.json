@@ -1,0 +1,15 @@
+{
+  "name": "package",
+  "version": "1.0.0",
+  "description": "TwilioSmsBot",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ed Freitas",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.13.4",
+    "twilio": "^2.9.1"
+  }
+}

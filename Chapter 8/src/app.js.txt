@@ -1,0 +1,76 @@
+var irc = require('irc');
+var client = new irc.Client('irc.freenode.net', 'BugTrackerIRCBot', {
+  autoConnect: false
+});
+client.connect(5, function(serverReply) {
+  console.log("Connected!\n", serverReply);
+  client.join('#BugsChannel', function(input) {
+    console.log("Joined #BugsChannel");
+    client.say('#BugsChannel', "Hi, there. I am an IRC Bot which track bugs or defects for your team.\n I can help you using following commands.\n BUGREPORT \n BUG # <BUG NO.>");
+  });
+});
+
+var DocumentClient = require('documentdb').DocumentClient;
+var host = "https://botdb.documents.azure.com:443/";                     
+var masterKey = "<PRIMARY KEY>";  
+var docclient = new DocumentClient(host, {masterKey: masterKey});
+
+client.addListener('message', function (from, to, text) {
+    var str = text;
+    if (str.indexOf('BUGREPORT') === -1){
+     if (str.indexOf('BUG #') === -1){
+        client.say('#BugsChannel', "I could not get that!\n Send me commands like,\n BUGREPORT \n BUG # <BUG NO.>");
+     }
+     else { 
+        client.say('#BugsChannel', "So you need info about "+text);              
+        client.say('#BugsChannel', "Wait for a moment!");         
+        var t= text.substring(6,text.length);
+        var temp = t.trim(); 
+        var querySpec = {
+                        query: 'SELECT * FROM Bugs b WHERE  b.id= @id',
+                        parameters: [
+                            {
+                                name: '@id',
+                                value: temp
+                            }
+                        ]
+                    };          
+         docclient.queryDocuments('dbs/BugDB/colls/Bugs', querySpec).toArray(function (err, results) {    
+             if (results.length>0){
+                client.say('#BugsChannel', "["+ results[0].url+"] [Status]: "+results[0].status+" [Title]:"+results[0].title); 	    
+             }else{
+                client.say('#BugsChannel', 'No bugs found.'); 	    
+             }
+         }); 
+     }      
+    }
+    else{
+        client.say('#BugsChannel', "So you need a Bug Report!");
+        client.say('#BugsChannel', "Wait for a moment!");           
+        var querySpec = {
+                        query: 'SELECT * FROM Bugs b WHERE  b.status= @status',
+                        parameters: [
+                            {
+                                name: '@status',
+                                value: 'Open'
+                            }
+                        ]
+                    };
+        docclient.queryDocuments('dbs/BugDB/colls/Bugs', querySpec).toArray(function (err, results) {    
+            client.say('#BugsChannel','Total Open Bugs:'+results.length);
+        });
+        var querySpec = {
+                        query: 'SELECT * FROM Bugs b WHERE  b.status= @status',
+                        parameters: [
+                            {
+                                name: '@status',
+                                value: 'Closed'
+                            }
+                        ]
+                    };
+        docclient.queryDocuments('dbs/BugDB/colls/Bugs', querySpec).toArray(function (err, results) {    
+            client.say('#BugsChannel','Total Closed Bugs:'+results.length);
+        });   
+    }    
+     
+});

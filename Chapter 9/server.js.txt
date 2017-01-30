@@ -1,0 +1,77 @@
+var util = require('util');
+var http = require('http');
+var Bot = require('@kikinteractive/kik');
+var request = require('request');
+
+var username = "<SALESFORCE_USERNAME>";
+var password = "<SALESFORCE_PASSWORD>";
+var accesstoken = password + '<SALESFORCE_SECURITY_TOKEN>';
+
+var fromUserName;
+
+// Configure the bot
+var bot = new Bot({
+  username: 'sforcebot',
+  apiKey: '<YOUR BOT API KEY>'
+});
+
+
+var jsforce = require('jsforce');
+var conn = new jsforce.Connection();
+
+bot.onTextMessage(/^hi|hello|how|hey$/i, (incoming, next) => {
+  bot.getUserProfile(incoming.from)
+    .then((user) => {
+      fromUserName = user.username;
+      incoming.reply('Hello,I am the SForce Bot. I provide your CRM information just by chatting.');
+
+      bot.send(Bot.Message.text('Select any option...')
+        .addResponseKeyboard(['Closing This Month', 'Closing Next Month'])
+        , fromUserName);
+    });
+});
+
+
+bot.onTextMessage(/^Closing This Month/i, (incoming, next) => {
+  incoming.reply('Opportunities for this month...!');
+  conn.login(username, accesstoken, function (err, res) {
+    if (err) { return console.error(err); }
+    console.log(res.id);
+    var records = [];
+    var qry = "SELECT Account.Name,Name,Amount FROM Opportunity WHERE CloseDate = THIS_MONTH ORDER BY AMOUNT DESC"
+    conn.query(qry, function (err, result) {
+      if (err) { return console.error(err); }
+      rec = result.records;
+      rec.forEach(function (d) {
+        bot.send(Bot.Message.text(d.Name + ' for ' + d.Account.Name + ' worth ' + d.Amount.toLocaleString('en-US', { style: 'currency', currency: 'USD' }))
+                                 .addResponseKeyboard(['Closing This Month', 'Closing Next Month']), fromUserName);
+      });
+    });
+  });
+
+
+});
+
+bot.onTextMessage(/^Closing Next Month/i, (incoming, next) => {
+  incoming.reply('Finding your opportunities for next month...!');
+  conn.login(username, accesstoken, function (err, res) {
+    if (err) { return console.error(err); }
+    console.log(res.id);
+    var records = [];
+    var qry = "SELECT Account.Name,Name,Amount FROM Opportunity WHERE CloseDate = NEXT_MONTH ORDER BY AMOUNT DESC"
+    conn.query(qry, function (err, result) {
+      if (err) { return console.error(err); }
+      rec = result.records;
+      rec.forEach(function (d) {
+        bot.send(Bot.Message.text(d.Name + ' for ' + d.Account.Name + ' worth ' + d.Amount.toLocaleString('en-US', { style: 'currency', currency: 'USD' }))
+                .addResponseKeyboard(['Closing This Month', 'Closing Next Month']), fromUserName);
+      });
+    });
+  });
+
+});
+
+// Set up your server and start listening
+var server = http
+  .createServer(bot.incoming())
+  .listen(process.env.PORT || 8080);

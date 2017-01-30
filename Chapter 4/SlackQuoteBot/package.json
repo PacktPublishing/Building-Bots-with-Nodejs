@@ -1,0 +1,15 @@
+{
+  "name": "quotebot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ed Freitas",
+  "license": "ISC",
+  "dependencies": {
+    "request": "^2.76.0",
+    "slackbots": "^0.5.3"
+  }
+}

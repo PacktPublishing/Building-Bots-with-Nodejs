@@ -1,0 +1,19 @@
+{
+  "name": "skypebot",
+  "version": "1.0.0",
+  "description": "A Skype HR Bot",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ed Freitas",
+  "license": "ISC",
+  "dependencies": {
+    "azure-storage": "^1.0.1",
+    "botbuilder": "^3.4.4",
+    "express": "^4.13.4"
+  },
+  "engines": {
+    "node": ">=5.6.0"
+  }
+}
