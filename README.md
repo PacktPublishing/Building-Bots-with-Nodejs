@@ -18,6 +18,8 @@ The code will look like the following:
   },
 ```
 
+Following is the software-hardware list:
+
 | Chapter  | Software required | Hardware required | OS required |
 | ------------- | ------------- | ------------- | ------------- |
 | 01-09 | Node.js | PC or laptop with at least 2 GB of RAM (4 recommended) | OS Independent although Windows 8 or above recommended |
