@@ -18,7 +18,6 @@ The code will look like the following:
   },
 ```
 
-Following is the Software-Hardware list for
 | Chapter  | Software required | Hardware required | OS required |
 | ------------- | ------------- | ------------- | ------------- |
 | 01 | Node.js
