@@ -20,16 +20,7 @@ The code will look like the following:
 
 | Chapter  | Software required | Hardware required | OS required |
 | ------------- | ------------- | ------------- | ------------- |
-| 01 | Node.js
-TWilio Account | PC or laptop with at least 2 GB of RAM (4 recommended) | OS Independent although Windows 8 or above recommended |
-| 02 | Node.js | PC or laptop with at least 2 GB of RAM (4 recommended) | OS Independent although Windows 8 or above recommended |
-| 03 | Node.js | PC or laptop with at least 2 GB of RAM (4 recommended) | OS Independent although Windows 8 or above recommended |
-| 04 | Node.js | PC or laptop with at least 2 GB of RAM (4 recommended) | OS Independent although Windows 8 or above recommended |
-| 05 | Node.js | PC or laptop with at least 2 GB of RAM (4 recommended) | OS Independent although Windows 8 or above recommended |
-| 06 | Node.js | PC or laptop with at least 2 GB of RAM (4 recommended) | OS Independent although Windows 8 or above recommended |
-| 07 | Node.js | PC or laptop with at least 2 GB of RAM (4 recommended) | OS Independent although Windows 8 or above recommended |
-| 08 | Node.js | PC or laptop with at least 2 GB of RAM (4 recommended) | OS Independent although Windows 8 or above recommended |
-| 09 | Node.js | PC or laptop with at least 2 GB of RAM (4 recommended) | OS Independent although Windows 8 or above recommended |
+| 01-09 | Node.js | PC or laptop with at least 2 GB of RAM (4 recommended) | OS Independent although Windows 8 or above recommended |
 
 ##Related Products
  
