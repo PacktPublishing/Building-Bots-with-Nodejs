@@ -16,11 +16,4 @@ The code will look like the following:
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  ```
-  
- ##Related Products
-* [Building Bots with Microsoft Bot Framework](https://www.packtpub.com/application-development/building-bots-microsoft-bot-framework?utm_source=github&utm_medium=repository&utm_campaign=9781786463104) 
-* [Instant Simple Botting with PHP](https://www.packtpub.com/networking-and-servers/instant-simple-botting-php-instant?utm_source=github&utm_medium=repository&utm_campaign=9781782169291)
-* [Building Slack Bots](https://www.packtpub.com/application-development/building-slack-bots?utm_source=github&utm_medium=repository&utm_campaign=9781786460806)
-###Suggestions and Feedback
-[Click here](https://docs.google.com/forms/d/e/1FAIpQLSe5qwunkGf6PUvzPirPDtuy1Du5Rlzew23UBp2S-P3wB-GcwQ/viewform) if you have any feedback or suggestions.
+```
