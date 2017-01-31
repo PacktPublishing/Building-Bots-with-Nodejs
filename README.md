@@ -3,8 +3,7 @@ This is the code repository for [Building Bots with Node.js](https://www.packtpu
 ## About the Book
 The bots are taking over and we're all for it! Messenger-based bots will be the dominant software UI for the next generation of applications – even Slack, Telegram, and Facebook are driving a new approach where "threads are the new apps."
 ###Instructions and Navigations
-All of the codes are organized as per the chapters, each folder has the codes related to that chapter or appendix.
-
+All of the codes are organized as per the chapters, each folder has the codes related to that chapter or appendix.                   
 For example: Building-Bots-with-Nodejs/Chapter05/package.json
 
 The code will look like the following:
@@ -19,7 +18,17 @@ The code will look like the following:
   },
 ```
 
-| Chapter  | Software required | OS required |
+| Chapter  | Software required | Hardware required | OS required |
+| ------------- | ------------- | ------------- | ------------- |
+| 01 | Node.js | PC or laptop with at least 2 GB of RAM (4 recommended) | OS Independent although Windows 8 or above recommended |
+| 02 |  |  |  |
+| 03 |  |  |  |
+| 04 |  |  |  |
+| 05 |  |  |  |
+| 06 |  |  |  |
+| 07 |  |  |  |
+| 08 |  |  |  |
+| 09 |  |  |  |
 
 ##Related Products
  
