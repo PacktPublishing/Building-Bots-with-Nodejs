@@ -1,5 +1,5 @@
 # Building Bots with Node.js
-This is the code repository for [Building Bots with Node.js](https://www.packtpub.com/application-development/building-bots-nodejs?utm_source=github&utm_medium=repository&utm_campaign=9781786465450), published by [Packt](www.packtpub.com). It contains all the supporting project files necessary to work through the book from start to finish.
+This is the code repository for [Building Bots with Node.js](https://www.packtpub.com/application-development/building-bots-nodejs?utm_source=github&utm_medium=repository&utm_campaign=9781786465450), published by [Packt](https://www.packtpub.com/). It contains all the supporting project files necessary to work through the book from start to finish.
 ## About the Book
 The bots are taking over and we're all for it! Messenger-based bots will be the dominant software UI for the next generation of applications – even Slack, Telegram, and Facebook are driving a new approach where "threads are the new apps."
 ###Instructions and Navigations
